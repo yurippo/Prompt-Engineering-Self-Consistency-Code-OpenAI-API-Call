@@ -46,11 +46,17 @@ messages = [
 answers = []
 LOOPS = 4
 prompt = """Always return at the end the string 'Resultado: ' with only the result value after it, no operation or punctuation beyond the value.
+
 Question: If there are 3 cars in the parking lot and 2 more cars arrive, how many cars will be in the parking lot?
+
 Answer: There are already 3 cars in the parking lot. 2 more arrive. Now there are 3 + 2 = 5 cars. The answer is 5.
+
 Resultado: 5
+
 Question: Janet's ducks lay 16 eggs per day. She eats three for breakfast every morning and makes muffins for her friends every day using four more. She sells the rest for 2 dollars per egg. How much money does she make every day?
+
 Answer:
+
 Resultado:"""
 
 # We are creating our chain of thought and teaching the model to reason with the example of the cars.
