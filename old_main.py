@@ -44,7 +44,9 @@ messages = [
 
 # SELF-CONSISTENCY
 answers = []
+
 LOOPS = 4
+
 prompt = """Always return at the end the string 'Resultado: ' with only the result value after it, no operation or punctuation beyond the value.
 
 Question: If there are 3 cars in the parking lot and 2 more cars arrive, how many cars will be in the parking lot?
@@ -74,6 +76,7 @@ Resultado:"""
 # At the end, we want to see what the most frequent value is and how many times it appears.
 
 messages.append({"role": "user", "content": prompt})  # adds your question to the chat history
+
 for loop in range(0, LOOPS):
     # API call
     response = openai.chat.completions.create(
@@ -82,6 +85,8 @@ for loop in range(0, LOOPS):
         max_tokens = 200,
         temperature = 1
     )
+
+    
     # Extract the answer from within the response JSON
     answer = response.choices[0].message.content
     print(f"### LOOP", loop, ':\n')
@@ -93,6 +98,7 @@ for loop in range(0, LOOPS):
         print("Answer:", number_answer, '\n------')
         answers.append(int(number_answer))  # adds the answer to the list of answers
 print(answers, '\n')
+
 
 # Let's run the code and see how it works in practice. We run the code and see that the most frequent value is 18, which appears four times.
 # Let's execute the same code one more time. This time, the most frequent value is 18, which appears three times.
